@@ -13,8 +13,8 @@ spec:
   source:
       path: ''
       repoURL: 'https://grafana.github.io/helm-charts'
-      targetRevision: ''
-      chart: k8s-monitoring
+      targetRevision: '6.10.0'
+      chart: loki
       helm:
           values: |-
               deploymentMode: SingleBinary
