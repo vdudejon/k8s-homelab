@@ -10,7 +10,7 @@ spec:
     - match: Host(`longhorn.vdude.io`)
       kind: Rule
       services:
-        - name: nginx
+        - name: longhorn-frontend
           port: 80
   tls:
     secretName: longhorn-cert
