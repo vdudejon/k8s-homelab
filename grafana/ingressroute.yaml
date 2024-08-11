@@ -1,0 +1,30 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana-cert
+  namespace: grafana
+spec:
+  commonName: grafana.vdude.io
+  secretName: grafana-cert2
+  dnsNames:
+    - grafana.vdude.io
+  issuerRef:
+    kind: ClusterIssuer
+    name: cloudflare-certs
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana-ingress
+  namespace: grafana
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`grafana.vdude.io`)
+      kind: Rule
+      services:
+        - name: nginx
+          port: 80
+  tls:
+    secretName: grafana-cert
