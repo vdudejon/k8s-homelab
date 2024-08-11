@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: longhorn-cert
+  namespace: longhorn-system
+spec:
+  commonName: longhorn.vdude.io
+  secretName: longhorn-cert
+  dnsNames:
+    - longhorn.vdude.io
+  issuerRef:
+    kind: ClusterIssuer
+    name: cloudflare-certs
