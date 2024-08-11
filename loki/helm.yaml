@@ -18,6 +18,8 @@ spec:
       helm:
           values: |-
               deploymentMode: SingleBinary
+              chunksCache:
+                allocatedMemory: 512
               loki:
                 commonConfig:
                   replication_factor: 1
