@@ -24,7 +24,7 @@ spec:
     - match: Host(`grafana.vdude.io`)
       kind: Rule
       services:
-        - name: nginx
+        - name: grafana
           port: 80
   tls:
     secretName: grafana-cert
